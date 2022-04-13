@@ -15,7 +15,7 @@ node{
             error 'Cannot check eslint violation'
         }
     }
-    tage('Checking pmd violation'){
+    stage('Checking pmd violation'){
         rc = command 'sfdx scanner:run --target "**/classes/**" --format html'
         if(rc!=0){
             error 'Cannot check pmdgit  violation'
