@@ -58,13 +58,13 @@
         <members>*</members>
         <name>CustomObject</name>
     </types>
-    <types>
+    <!-- <types>
         <members>Booking</members>
         <members>Booking__c</members>
         <members>Movie__c</members>
         <members>Show_Time__c</members>
         <name>CustomTab</name>
-    </types>
+    </types> -->
     <types>
         <members>Booking__c.sjopw</members>
         <name>FieldSet</name>
