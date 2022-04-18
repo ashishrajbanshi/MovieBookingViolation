@@ -23,7 +23,7 @@ node{
     // }
     stage('New'){
         try{
-            command 'sfdx scanner:run --engine 'pmd' --pmdconfig "./.rule_reference.xml"  --format html --target "./force-app/main/default/main/default/classes" -o ./force-app/pmdscanresult.html --severity-threshold 2';
+            command 'sfdx scanner:run --engine "pmd" --pmdconfig "./.rule_reference.xml"  --format html --target "./force-app/main/default/main/default/classes" -o ./force-app/pmdscanresult.html --severity-threshold 2';
             command 'sfdx scanner:run --engine "eslint-lwc" --eslintconfig " ./.eslintrc.json"  --format html --target "./force-app/main/default/main/default/lwc" -o ./force-app/eslintscanresult.html --normalize-severity --severity-threshold 1';
         }
         catch(Exception ex){
