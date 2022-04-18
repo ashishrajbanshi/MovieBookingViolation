@@ -8,10 +8,7 @@
         <members>MB_Movie_trigger_new</members>
         <name>ApexTrigger</name>
     </types>
-    <types>
-        <members>Booking__c.Approve_Booking</members>
-        <name>ApprovalProcess</name>
-    </types>
+
     <types>
         <members>MB_Movie_Booking_Component</members>
         <members>MB_Movie_Booking_Form</members>
