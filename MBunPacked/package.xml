@@ -30,11 +30,11 @@
         <members>Booking__c.Booking_compact</members>
         <name>CompactLayout</name>
     </types>
-    <types>
+    <!-- <types>
         <members>Movie_Booking</members>
         <members>Movie_Booking_SU</members>
         <name>CustomApplication</name>
-    </types>
+    </types> -->
     <types>
         <members>Booking__c.Email__c</members>
         <members>Booking__c.Payment__c</members>
