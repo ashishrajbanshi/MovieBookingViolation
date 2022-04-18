@@ -23,23 +23,25 @@ node{
     // }
     stage('New'){
         try{
-            sh "sfdx scanner:run --engine 'pmd' --pmdconfig './.rule_reference.xml'  --format html --target delta/metadata -o delta/pmdscanresult.html --severity-threshold 2"
-            sh "sfdx scanner:run --engine 'eslint-lwc' --eslintconfig './.eslintrc.json'  --format html --target 'delta/metadata/lwc/**/*.js' -o delta/eslintscanresult.html --normalize-severity --severity-threshold 1";
-        }catch(Exception ex){
+            command 'sfdx scanner:run --engine 'pmd' --pmdconfig "./.rule_reference.xml"  --format html --target "./force-app/main/default/main/default/classes" -o ./force-app/pmdscanresult.html --severity-threshold 2';
+            command 'sfdx scanner:run --engine "eslint-lwc" --eslintconfig " ./.eslintrc.json"  --format html --target "./force-app/main/default/main/default/lwc" -o ./force-app/eslintscanresult.html --normalize-severity --severity-threshold 1';
+        }
+        catch(Exception ex){
             error(ex.getMessage());
         }finally{
             // Publish the result
             publishHTML([
-            allowMissing: false, 
-            alwaysLinkToLastBuild: true, 
-            keepAll: true, 
-            reportDir: 'delta', 
-            reportFiles: 'pmdscanresult.html, eslintscanresult.html', 
-            reportName: 'Source Scanner Report', 
-            reportTitles: ''
+                allowMissing: false, 
+                alwaysLinkToLastBuild: true, 
+                keepAll: true, 
+                reportDir: 'force-app', 
+                reportFiles: 'pmdscanresult.html, eslintscanresult.html', 
+                reportName: 'Source Scanner Report', 
+                reportTitles: ''
             ])
         }
-
+    }
+}
 def command(script) {
     if (isUnix()) {
         return sh(returnStatus: true, script: script);
